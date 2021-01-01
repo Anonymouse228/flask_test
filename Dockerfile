@@ -1,11 +1,13 @@
 FROM python:3.9
 
-RUN mkdir -p /usr/src/app/
-WORKDIR /usr/src/app/
+COPY ./requirements.txt /app/requirements.txt
 
-COPY . /usr/src/app/
-RUN pip install --no-cache-dir -r r.txt
+WORKDIR /app
 
-EXPOSE 5000
+RUN pip install -r requirements.txt
 
-CMD ["python", "app.py"]
+COPY . /app
+
+ENTRYPOINT [ "python" ]
+
+CMD [ "app.py" ]
