@@ -8,6 +8,8 @@ RUN pip install -r requirements.txt
 
 COPY . /app
 
+RUN chmod 755 /app
+
 ENTRYPOINT [ "python" ]
 
 CMD [ "app.py" ]
